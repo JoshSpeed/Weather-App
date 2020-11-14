@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Speed Weather</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+
+<body>
+
+    <form action="/" method="POST">
+        <input type="text" placeholder="Enter any city name or US Zip Code &#40;UK Post Codes aren't supported&#41;"
+            name="cityName" class="city-name">
+        <button class="submit" type="submit">Go</button>
+    </form>
+
+    <div class="container">
+        <div class="top">
+
+            <div class="weather-icon">
+            <% if(icon !== null) { %>
+                <img src="http://openweathermap.org/img/wn/<%=icon%>@2x.png" alt="">
+            <% } %>   
+            </div>
+
+            <div class="weather-des">
+            <% if(weatherDescription !== null) { %>
+                <h2><%= weatherDescription %></h2>
+            <% } %>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="temp">
+                <div class="main-temp">
+                <% if(temp !== null) { %>
+                    <h3><%= temp %>&#176;</h3>
+                <% } %>
+                </div>
+                <div class="feels-like">
+                <% if (tempFL !== null) { %>
+                    <h4>Feels Like <%= tempFL %>&#176;</h4>
+                <% } %>
+                </div>
+            </div>
+            <div class="location-name">
+                <% if(city !== null) { %>
+                    <h2><%= city %></h2>
+                <% } %>
+            </div>
+            <div class="date">
+                <h2><%= currentDay %> <%= currentDate %> <%= currentMonth %></h2>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js" async defer></script>
+</body>
+
+</html>
